@@ -9,8 +9,6 @@
 
 Music is collaborative. A songwriter, a theorist, a producer, and a critic each bring domain expertise — and they don't always agree. The tension between them produces better music than any one of them alone. BandAI models exactly that: five Qwen agents with distinct personas, real task division, explicit conflict detection, and negotiated resolution — plus a **single-agent baseline** so the multi-agent gain can be compared honestly.
 
-Built by a working musician ([@creativeartistscorner](https://www.youtube.com/@creativeartistscorner)).
-
 ---
 
 ## Table of Contents
