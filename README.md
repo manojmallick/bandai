@@ -98,6 +98,34 @@ npm run dev                 # full society + baseline on a sample brief
 
 The agent model defaults to `qwen-plus` (constructor parameter — one persona per call keeps five agents affordable).
 
+## Use Your Own Brief
+
+`npm run dev` composes a demo song. To use your own brief, build the project and call the class from your code:
+
+```ts
+import { BandAI } from "./dist/index";
+
+const band = new BandAI();                     // optional: new BandAI(undefined, "qwen-max")
+const result = await band.compose("Write a ska-punk song about the Monday commute. 2 minutes.");
+console.log(result.finalPackage);              // lyrics, chord chart, production notes, arrangement
+console.log(result.conflicts, result.iterations, result.elapsedSeconds);
+```
+
+`compose()` returns the specialist outputs, the detected conflicts, the critic review, the final package, the number of negotiation iterations and the elapsed time. `singleAgentBaseline(brief)` runs the single-agent comparison. A full real run takes several minutes; see [DEMO_RUN.md](DEMO_RUN.md) for a captured one.
+
+### Scripts
+
+| Command | What it does |
+|---|---|
+| `npm run dev` | Run `src/index.ts` with ts-node (the built-in demo) |
+| `npm run build` | Compile TypeScript to `dist/` |
+| `npm start` | Run the compiled build (`node dist/index.js`) |
+
+### Limitations
+
+- `npm run dev` only runs the built-in demo; to use your own input, call the class from your code as shown above.
+- There are no automated tests. Quality depends on the Qwen model's output, which varies between runs.
+
 ## Project Structure
 
 ```
